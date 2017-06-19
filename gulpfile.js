@@ -23,14 +23,22 @@ gulp.task('prepare', () => {
 			'!package.json'
 		])
 		.pipe(replace(
-			/(<link rel="stylesheet" href=")(n
-			ode_modules\/shower-)([^\/]*)\/(.*\.css">)/g,
+			/(<link rel="stylesheet" href=")(node_modules\/shower-)([^\/]*)\/(.*\.css">)/g,
 			'$1shower/themes/$3/$4', { skipBinary: true }
 		))
 		.pipe(replace(
 			/(<script src=")(node_modules\/shower-core\/)(shower.min.js"><\/script>)/g,
 			'$1shower/$3', { skipBinary: true }
-		));
+		))
+		.pipe(replace(
+			/(<link rel="stylesheet" href=")node_modules\/(highlightjs\/)styles\/(.*">)/g,
+			'$1$2$3', { skipBinary: true }
+		))
+		.pipe(replace(
+			/(<script src=")node_modules\/(highlightjs\/.*"><\/script>)/g,
+			'$1$2', { skipBinary: true }
+		))
+		;
 
 	const core = gulp.src([
 			'shower.min.js'
@@ -65,7 +73,17 @@ gulp.task('prepare', () => {
 			'$1../../$3', { skipBinary: true }
 		));
 
-	return merge(shower, core, themes)
+	const highlight = gulp.src([
+			'*.js',
+			'styles/default.css'
+		], {
+			cwd: 'node_modules/highlightjs'
+		})
+		.pipe(rename(path => {
+			path.dirname = 'highlightjs/' + path.dirname;
+		}))
+
+	return merge(shower, core, themes, highlight)
 		.pipe(gulp.dest('prepared'));
 
 });
