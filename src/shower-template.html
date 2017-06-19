@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+	<title><%= title %></title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="https://github.com/sapegin/grunt-shower-markdown">
+	<link rel="stylesheet" href="node_modules/<%= theme %>/styles/screen-16x10.css">
+	<% for (var styleIdx in styles) { %>
+		<link rel="stylesheet" href="<%= styles[styleIdx] %>">
+	<% } %>
+</head>
+<body class="shower list">
+	<header class="caption">
+		<%= caption %>
+	</header>
+
+	<% for (var slideIdx in slides) { var slide = slides[slideIdx]; %>
+	<section class="slide <%= slide.classes.join(' ') %>" <% if (slide.id) { %>id="<%= slide.id %>"<% } %>><div>
+		<%= slide.html %>
+	</div></section>
+	<% } %>
+
+	<% if (progress) { %><div class="progress"></div><% } %>
+	<script src="node_modules/shower-core/shower.min.js"></script>
+
+	<% for (var scriptIdx in scripts) { %>
+		<script src="<%= scripts[scriptIdx] %>"></script>
+	<% } %>
+
+	<%= footer %>
+
+	<!-- Shower: http://shwr.me -->
+</body>
+</html>
