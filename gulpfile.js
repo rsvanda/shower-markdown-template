@@ -20,6 +20,7 @@ gulp.task('prepare', () => {
 			'!LICENSE.md',
 			'!README.md',
 			'!gulpfile.js',
+			'!Gruntfile.js',
 			'!package.json'
 		])
 		.pipe(replace(
