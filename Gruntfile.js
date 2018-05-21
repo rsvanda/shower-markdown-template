@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		shower: {
 			index: {
-				title: 'Test presentation',
+				title: 'Shower presentation template',
 				src: 'src/index.md',
                 template: 'src/shower-template.html',
 				theme: 'shower-ribbon',

@@ -1,14 +1,14 @@
 {
-  "name": "presentation-template",
+  "name": "shower-markdown-template",
   "description": "Shower HTML presentation template",
   "version": "0.0.1",
   "author": {
     "name": "Radek Svanda"
   },
-  "homepage": "https://git.simplity.eu/svandar/presentation-template",
+  "homepage": "https://github.com/rsvanda/shower-markdown-template",
   "repository": {
     "type": "git",
-    "url": "git://git@git.simplity.dev:svandar/presentation-template.git"
+    "url": "git@github.com:rsvanda/shower-markdown-template.git"
   },
   "files": [
   ],
@@ -23,7 +23,7 @@
     "fs": "0.0.2",
     "grunt": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-shower-markdown": "git+ssh://git@git.simplity.dev:svandar/grunt-shower-markdown.git#master",
+    "grunt-shower-markdown": "https://github.com/rsvanda/grunt-shower-markdown.git#master",
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-rename": "^1.2.2",
